@@ -1,0 +1,11 @@
+Game Design Document
+
+My game will be a 3D platformer shooter where you will be able to shoot, move, jump and do various other movement abilities I may add to the game. The game will be a single player 3D first person game.
+
+This game will be available on PC and developed on unity with the c# coding language.
+
+The gameplay will consist of platforming while trying to survive or take out different sorts of enemies. You will be able to progress through layers by reaching a specific point on the map.
+
+The player will move using the basic FPS controls (WASD to move and space to jump) and I will also attempt to add more advanced forms of movement such as sliding. I will also add a shooting mechanic using the left mouse button to activate.
+
+I will also attempt to add power ups to my game which will give the player boosts such as speed boosts or jump boosts.
