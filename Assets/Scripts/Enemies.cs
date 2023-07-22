@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public float health = 100f;
-
-    public void TakeDamage (float amount)
+    public float health;
+    
+    public PlayerInfo InfoScript;
+    private void Start()
     {
-        health -= amount;
+        GameObject player = GameObject.Find("Capsule");
+        PlayerInfo InfoScript = player.GetComponent<PlayerInfo>();
+        health = 100f;
+    }
+
+    public void TakeDamage (float damage)
+    {
+        health -= damage;
         if (health <= 0f)
         {
             Die();
@@ -17,6 +25,7 @@ public class Enemies : MonoBehaviour
     void Die ()
     {
         Destroy(gameObject);
+        InfoScript.PointGain();
     }
  
 }

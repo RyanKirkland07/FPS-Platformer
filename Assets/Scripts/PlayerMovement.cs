@@ -33,6 +33,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Sliding slide;
 
+    public float BoostTimeLength;
+
+    public Transform SpeedBoostLocationRespawn;
+    public Vector3 SpeedBoostRespawn;
+    public Transform SpeedBoostTransform;
+    public Transform SpeedBoostLocationTransform;
+    public GameObject SpeedBoost;
+    public float RespawnRange;
+    public SpeedPowerup SpeedBoostScript;
+
+    public bool Slope;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
         speed = 5.0f;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        GameObject SpeedBoost = GameObject.Find("Speed Boost");
+        SpeedPowerup SpeedBoostScript = SpeedBoost.GetComponent<SpeedPowerup>();
+        GameObject SpeedBoostLocation = GameObject.Find("SpeedBoostLocation");
+        Transform SpeedBoostLocationTransform = SpeedBoostLocation.GetComponent<Transform>();
+        Debug.Log("Active?" + gameObject.activeInHierarchy);
     }
 
     private void Update()
@@ -95,18 +112,41 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private bool onSlope()
+    public bool onSlope()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out rampHit, 1f))
+        if(Physics.Raycast(transform.position, Vector3.down, out rampHit, 1.5f))
         {
             float angle = Vector3.Angle(Vector3.up, rampHit.normal);
+            Slope = true;
             return angle < maxAngle && angle != 0;
         }
-
-        return false;
+        else
+        {
+            Slope = false;
+            return false;
+        }
+        
     }
     private Vector3 SlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(MoveDirection, rampHit.normal).normalized;
     }
+
+    public void Speedboost()
+    {
+        Debug.Log("Speedboost method working");
+        speed = 10f;
+        BoostTimeLength = 5f;
+        StartCoroutine(SpeedBoostTimer());
+
+    }
+    IEnumerator SpeedBoostTimer()
+    {
+        yield return new WaitForSeconds(BoostTimeLength);
+        speed = 5f;
+        SpeedBoostScript.RespawnBoost();
+        Debug.Log("Active?" + gameObject.activeInHierarchy);
+    }
+
+
 }
