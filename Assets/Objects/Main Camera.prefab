@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 719561638002007819}
   - component: {fileID: 719561638002007816}
   - component: {fileID: 2450505499767160630}
+  - component: {fileID: -5423132391556085397}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 100
-  Capsule: {fileID: 0}
+  Capsule: {fileID: 2462947653169192361, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
   orientation: {fileID: 0}
 --- !u!114 &719561638002007816
 MonoBehaviour:
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222e258e22d7daf4fbaa5ef8f6a9297b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Capsule: {fileID: 0}
+  Capsule: {fileID: 2462947653169192361, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
   CameraPos: {fileID: 0}
 --- !u!82 &2450505499767160630
 AudioSource:
@@ -117,7 +118,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 269342c7ddd39cc479217625b867b8a2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -203,3 +204,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5423132391556085397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719561638002007820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06125bd44e77d8c41bafa4c00327eea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2462947653169192358, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
+  Song1: {fileID: 8300000, guid: 269342c7ddd39cc479217625b867b8a2, type: 3}
+  Song2: {fileID: 8300000, guid: 50d77d58f341fd7449847125133d18b8, type: 3}
+  SongSource: {fileID: 2450505499767160630}

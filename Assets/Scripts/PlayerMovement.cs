@@ -136,16 +136,22 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Speedboost method working");
         speed = 10f;
-        BoostTimeLength = 5f;
-        StartCoroutine(SpeedBoostTimer());
+        BoostTimeLength = 60f;
+        StartCoroutine(BoostTimer());
 
     }
-    IEnumerator SpeedBoostTimer()
+    public void Jumpboost()
+    {
+        jumpHeight = 16f;
+        BoostTimeLength = 5f;
+        StartCoroutine(BoostTimer());
+    }
+
+    IEnumerator BoostTimer()
     {
         yield return new WaitForSeconds(BoostTimeLength);
         speed = 5f;
-        SpeedBoostScript.RespawnBoost();
-        Debug.Log("Active?" + gameObject.activeInHierarchy);
+        jumpHeight = 8f;
     }
 
 

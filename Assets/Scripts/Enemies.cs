@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemies : MonoBehaviour
 {
     public float health;
-    
+
     public PlayerInfo InfoScript;
     private void Start()
     {
@@ -20,12 +20,11 @@ public class Enemies : MonoBehaviour
         {
             Die();
         }
-    }
-
+    } 
     void Die ()
     {
         Destroy(gameObject);
         InfoScript.PointGain();
     }
- 
+
 }

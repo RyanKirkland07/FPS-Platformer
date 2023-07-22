@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPowerup : MonoBehaviour
+public class JumpPowerup : MonoBehaviour
 {
     public GameObject player;
     public PlayerMovement MoveScript;
-    public Transform SpeedBoostLocationTransform;
+    public Transform JumpBoostLocationTransform;
     // Start is called before the first frame update
     void Start()
     {
         GameObject player = GameObject.Find("Capsule");
         PlayerMovement MoveScript = player.GetComponent<PlayerMovement>();
-        GameObject SpeedBoostLocation = GameObject.Find("SpeedBoostLocation");
-        Transform SpeedBoostLocationTransform = SpeedBoostLocation.GetComponent<Transform>();
+        GameObject JumpBoostLocation = GameObject.Find("JumpBoostLocation");
+        Transform JumpBoostLocationTransform = JumpBoostLocation.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class SpeedPowerup : MonoBehaviour
         if(Info.name == "Capsule")
         {
             Destroy(gameObject);
-            MoveScript.Speedboost();
+            MoveScript.Jumpboost();
         }
     }
 }

@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 3494595920884077606}
   - component: {fileID: 3494595920884077607}
   - component: {fileID: 2462947653169192020}
-  - component: {fileID: 7470868602666935509}
+  - component: {fileID: 360875753071940015}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -698,7 +698,7 @@ MonoBehaviour:
   LoadedAmmo: 0
   Empty: 0
   NextTimeToFire: 0
-  Cam: {fileID: 0}
+  Cam: {fileID: 719561638002007822, guid: fcf94e2774a0a254784ed748693ef984, type: 3}
   Gunshot: {fileID: 2462947653656780784}
   Pow: {fileID: 2462947653169192368}
   GlockShot: {fileID: 0}
@@ -707,7 +707,7 @@ MonoBehaviour:
   Flash: {fileID: 2462947653193755611}
   EnemyLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &3494595920884077607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelTransitioner: {fileID: 0}
   script: {fileID: 0}
---- !u!114 &7470868602666935509
+--- !u!114 &360875753071940015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,12 +770,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2462947653169192358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06125bd44e77d8c41bafa4c00327eea0, type: 3}
+  m_Script: {fileID: 11500000, guid: c6c4772200726784283f372cc9d40254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Song1: {fileID: 8300000, guid: 269342c7ddd39cc479217625b867b8a2, type: 3}
-  Song2: {fileID: 8300000, guid: 50d77d58f341fd7449847125133d18b8, type: 3}
-  SongSource: {fileID: 2450505499767160630, guid: fcf94e2774a0a254784ed748693ef984, type: 3}
+  LevelTransitioner: {fileID: 756745070020259880, guid: 80089376bb63da2419d88fd7704595d3, type: 3}
+  script: {fileID: 0}
 --- !u!1 &2462947653193755606
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelBackwards : MonoBehaviour 
 {
     public GameObject LevelTransitioner;
-    public LevelBackwards script;
     private void OnTriggerEnter(Collider BackwardsInfo)
     {
         Debug.Log("Working");
