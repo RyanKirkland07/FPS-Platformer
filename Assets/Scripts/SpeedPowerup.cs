@@ -13,7 +13,6 @@ public class SpeedPowerup : MonoBehaviour
         GameObject player = GameObject.Find("Capsule");
         PlayerMovement MoveScript = player.GetComponent<PlayerMovement>();
         GameObject SpeedBoostLocation = GameObject.Find("SpeedBoostLocation");
-        Transform SpeedBoostLocationTransform = SpeedBoostLocation.GetComponent<Transform>();
     }
 
     // Update is called once per frame

@@ -13,7 +13,6 @@ public class JumpPowerup : MonoBehaviour
         GameObject player = GameObject.Find("Capsule");
         PlayerMovement MoveScript = player.GetComponent<PlayerMovement>();
         GameObject JumpBoostLocation = GameObject.Find("JumpBoostLocation");
-        Transform JumpBoostLocationTransform = JumpBoostLocation.GetComponent<Transform>();
     }
 
     // Update is called once per frame

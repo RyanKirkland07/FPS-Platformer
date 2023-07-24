@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672485935271925668}
   - component: {fileID: 1056718476112295845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,9 +140,9 @@ GameObject:
   - component: {fileID: 1050709499698553640}
   - component: {fileID: 3448074576716845563}
   - component: {fileID: 2713066658456916174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Glock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3848821384598715895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 1352010559765251511}
   - component: {fileID: 8024768866617140400}
   - component: {fileID: 8521036962499594571}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5051,7 +5051,7 @@ GameObject:
   - component: {fileID: 3282287977864221210}
   - component: {fileID: 6583047425777326673}
   - component: {fileID: 97333565400729502}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun Model
   m_TagString: Glock
   m_Icon: {fileID: 0}

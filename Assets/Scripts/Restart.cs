@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CameraFollow : MonoBehaviour
+public class Restart : MonoBehaviour
 {
-    public Transform Capsule;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject player = GameObject.Find("Capsule");
-        Capsule = player.GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Capsule.position;
+        
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
     }
 }

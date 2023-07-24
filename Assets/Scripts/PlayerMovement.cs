@@ -35,12 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float BoostTimeLength;
 
-    public Transform SpeedBoostLocationRespawn;
-    public Vector3 SpeedBoostRespawn;
-    public Transform SpeedBoostTransform;
-    public Transform SpeedBoostLocationTransform;
+
     public GameObject SpeedBoost;
-    public float RespawnRange;
     public SpeedPowerup SpeedBoostScript;
 
     public bool Slope;
@@ -56,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         GameObject SpeedBoost = GameObject.Find("Speed Boost");
         SpeedPowerup SpeedBoostScript = SpeedBoost.GetComponent<SpeedPowerup>();
         GameObject SpeedBoostLocation = GameObject.Find("SpeedBoostLocation");
-        Transform SpeedBoostLocationTransform = SpeedBoostLocation.GetComponent<Transform>();
         Debug.Log("Active?" + gameObject.activeInHierarchy);
     }
 
@@ -143,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jumpboost()
     {
         jumpHeight = 16f;
-        BoostTimeLength = 5f;
+        BoostTimeLength = 20f;
         StartCoroutine(BoostTimer());
     }
 

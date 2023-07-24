@@ -82,7 +82,7 @@ public class Gun : MonoBehaviour
     
     public void ARchange()
     {
-        gundamage = 5f;
+        gundamage = 7.5f;
         range = 15f;
         FireRate = 2f;
         Ammo = 31;
@@ -94,7 +94,7 @@ public class Gun : MonoBehaviour
     }
     public void Glockchange()
     {
-        gundamage = 10f;
+        gundamage = 15f;
         range = 15f;
         FireRate = 1f;
         Ammo = 16;

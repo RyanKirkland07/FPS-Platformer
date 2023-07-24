@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5281015585146064120}
   - component: {fileID: 4858410662357114596}
   - component: {fileID: 2339155920226670608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3485748553532710804}
   - component: {fileID: 8847855454734777378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4952,7 +4952,7 @@ GameObject:
   - component: {fileID: 3677332232049414164}
   - component: {fileID: 3692021619244758979}
   - component: {fileID: 669773947274494998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shotgun Model
   m_TagString: Shotgun
   m_Icon: {fileID: 0}
@@ -5050,9 +5050,9 @@ GameObject:
   - component: {fileID: 7627143082589765784}
   - component: {fileID: 4342859531613417527}
   - component: {fileID: 3077611866192906721}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Shotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5132,7 +5132,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7629473349641415686}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

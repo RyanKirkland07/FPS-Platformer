@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SenseChange : MonoBehaviour
+public class YouWin : MonoBehaviour
 {
+    public GameObject Winner;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class SenseChange : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnTriggerStay(Collider Info)
+    {
+        if(Info.tag == "Win")
+        {
+            Winner.SetActive(true);
+        }
     }
 }

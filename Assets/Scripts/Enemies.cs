@@ -10,7 +10,7 @@ public class Enemies : MonoBehaviour
     {
         GameObject player = GameObject.Find("Capsule");
         PlayerInfo InfoScript = player.GetComponent<PlayerInfo>();
-        health = 100f;
+        health = 50f;
     }
 
     public void TakeDamage (float damage)
