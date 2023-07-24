@@ -157,6 +157,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Winner: {fileID: 1130849022}
+--- !u!114 &46205074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46205059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9599da7f6d97efb498dcad29a27bec71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseScreen: {fileID: 1328603976}
+  CameraTurn: {fileID: 353731398}
 --- !u!1001 &74067662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,6 +1431,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1328603976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7424507948771227551, guid: 18d1c50611d461c42942c6f811ba05fc, type: 3}
+  m_PrefabInstance: {fileID: 646596465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1424034736
 PrefabInstance:
   m_ObjectHideFlags: 0
