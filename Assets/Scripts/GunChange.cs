@@ -84,7 +84,6 @@ public class GunChange : MonoBehaviour
     }
     public void AR()
     {
-        Debug.Log("Method works");
         GunBarrel.localScale = new Vector3(0.6f, 6f, 1f);
         GunScript.ARchange();
     }

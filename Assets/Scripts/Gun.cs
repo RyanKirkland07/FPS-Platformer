@@ -41,8 +41,6 @@ public class Gun : MonoBehaviour
     {
         if(Input.GetButton("Fire1") && Time.time >= NextTimeToFire && !Empty)
         {
-            Flash.Play();
-            Gunshot.Play();
             NextTimeToFire = Time.time + 1f/FireRate;
             LoadedAmmo = LoadedAmmo - 1;
             Shoot();
@@ -56,20 +54,6 @@ public class Gun : MonoBehaviour
             StartCoroutine(Reload());
         }
 
-        void Shoot()
-        {
-            RaycastHit hit;
-            if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, range, EnemyLayerMask))
-            {
-                Debug.Log(hit.transform.name);
-
-                Enemies target = hit.transform.GetComponent<Enemies>();
-                if (target != null)
-                {
-                    target.TakeDamage(gundamage);
-                }
-            }
-
         }
         IEnumerator Reload()
         {
@@ -78,7 +62,24 @@ public class Gun : MonoBehaviour
             Empty = false;
         }
 
+    
+    public void Shoot()
+    {
+        Flash.Play();
+        Gunshot.Play();
+        RaycastHit hit;
+        if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, range, EnemyLayerMask))
+        {
+            Debug.Log(hit.transform.name);
+
+            Enemies target = hit.transform.GetComponent<Enemies>();
+            if (target != null)
+            {
+                target.TakeDamage(gundamage);
+            }
+        }
     }
+    
     public void ARchange()
     {
         gundamage = 5f;
@@ -116,3 +117,4 @@ public class Gun : MonoBehaviour
         Gunshot.clip = ShotgunShot;
     }
 }
+

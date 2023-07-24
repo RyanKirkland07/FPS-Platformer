@@ -35,4 +35,19 @@ public class CameraTurn : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
         orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
     }
+    public void TurnOff()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void BackOn()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+    }
+    public void ChangeSens(float value)
+    {
+        sensitivity = value;
+    }
 }
