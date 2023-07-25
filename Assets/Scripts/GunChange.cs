@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class GunChange : MonoBehaviour
 {
+    //Variables to see if changing guns is ready
     public bool ChangeReady;
     public float ChangeReadyTime;
 
+    //Bool to check which gun is equipped
     public bool GlockEquipped;
     public bool AREquipped;
     public bool ShotgunEquipped;
 
+    //The Gun script and the GunBarrel Transform
     public Gun GunScript;
     public Transform GunBarrel;
     // Start is called before the first frame update
     void Start()
     {
+        //Finds the GunBarrel Transform
         GameObject Barrel = GameObject.Find("GunBarrel");
         GunBarrel = Barrel.GetComponent<Transform>();
 
+        //Finds the gun script
         GameObject Player = GameObject.Find("Capsule");
         GunScript = Player.GetComponent<Gun>();
-        Debug.Log(gameObject);
+
+        //Sets variables
         ChangeReady = true;
         ChangeReadyTime = 1.5f;
         GlockEquipped = true;
@@ -31,6 +37,7 @@ public class GunChange : MonoBehaviour
 
     private void OnTriggerStay(Collider GunInfo)
     {
+        //When collision with guns triggers the function detects which gun it is and if you are able to switch
         Debug.Log(GunInfo.transform.position);
         if(GunInfo.tag == "Glock" && ChangeReady && !GlockEquipped)
         {
@@ -63,25 +70,12 @@ public class GunChange : MonoBehaviour
 
     IEnumerator ChangeCooldown()
     {
+        //Countdown the timer for being able to switch guns again
         yield return new WaitForSeconds(ChangeReadyTime);
         ChangeReady = true;
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown("q"))
-        {
-            AR();
-        }
-        if(Input.GetKeyDown("e"))
-        {
-            Glock();
-        }
-        if(Input.GetKeyDown("l"))
-        {
-            Shotgun();
-        }
-    }
+    //Calls upon the Gun script to change the variables for the gun and also scales the gun to change model
     public void AR()
     {
         GunBarrel.localScale = new Vector3(0.6f, 6f, 1f);

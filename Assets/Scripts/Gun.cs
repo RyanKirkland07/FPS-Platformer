@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+    //Gun Variables
     public float gundamage;
     public float range;
     public float FireRate;
@@ -12,20 +13,23 @@ public class Gun : MonoBehaviour
     public bool Empty;
     public float NextTimeToFire;
 
+    //Camera
     public Camera Cam;
 
+    //Extra stuff to improve the script
     public AudioSource Gunshot;
     public AudioListener Pow;
     public AudioClip GlockShot;
     public AudioClip ARShot;
     public AudioClip ShotgunShot;
-
     public ParticleSystem Flash;
 
+    //Enemy Mask that is targeted by raycast
     public LayerMask EnemyLayerMask;
     // Start is called before the first frame update
     void Start()
     {
+        //Sets all variables to what they should be at the start of the script
         gundamage = 10f;
         range = 15f;
         FireRate = 1f;
@@ -39,22 +43,28 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks if gun is ready to fire and then fires
         if(Input.GetButton("Fire1") && Time.time >= NextTimeToFire && !Empty)
         {
+            //Creates the next time to fire and subtracts from loadedammo
             NextTimeToFire = Time.time + 1f/FireRate;
             LoadedAmmo = LoadedAmmo - 1;
+            //Starts shoot function
             Shoot();
+            //Detects if ammo is 0
             if(LoadedAmmo == 0)
             {
                 Empty = true;
             }
         }
+        //If gun is Empty starts reload
         if(Input.GetButtonDown("Fire1") && Empty)
         {
             StartCoroutine(Reload());
         }
 
         }
+        //Reload timer and function
         IEnumerator Reload()
         {
             yield return new WaitForSeconds(ReloadSpeed);
@@ -62,24 +72,27 @@ public class Gun : MonoBehaviour
             Empty = false;
         }
 
-    
+    //Shoot function
     public void Shoot()
     {
+        //Extra stuff
         Flash.Play();
         Gunshot.Play();
+        //Raycast
         RaycastHit hit;
         if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, range, EnemyLayerMask))
         {
-            Debug.Log(hit.transform.name);
-
+            //Detects if hit enemy
             Enemies target = hit.transform.GetComponent<Enemies>();
             if (target != null)
             {
+                //Calls enemy script to apply damage
                 target.TakeDamage(gundamage);
             }
         }
     }
     
+    //These functions change the variables when switching guns
     public void ARchange()
     {
         gundamage = 7.5f;

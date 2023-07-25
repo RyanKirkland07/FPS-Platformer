@@ -44,11 +44,14 @@ public class Sliding : MonoBehaviour
 
     private void Update()
     {
+        //Movement Inputs
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        //Ground check
         Grounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, groundMask);
 
+        //Start and stop slide
         if(Input.GetKeyDown(KeyCode.LeftShift) && (horizontalInput != 0 || verticalInput != 0) && Grounded)
         {
             StartSlide();
@@ -57,6 +60,7 @@ public class Sliding : MonoBehaviour
         {
             StopSlide();
         }
+        //Start and stop crouch
         if(Input.GetKeyDown(KeyCode.LeftShift) && (horizontalInput == 0) && (verticalInput == 0))
         {
             crouchStart();
@@ -69,6 +73,7 @@ public class Sliding : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Starts sliding if pressing left shift and grounded
         if(sliding && Grounded)
         {
             SlidingMovement();
@@ -77,40 +82,44 @@ public class Sliding : MonoBehaviour
 
     private void StartSlide()
     {
+        //Enables sliding, shrinks player and resets the timer
         sliding = true;
         Capsule.localScale = new Vector3(Capsule.localScale.x, 0.5f, Capsule.localScale.z);
-        //hitbox.size = new Vector3(1, 1, 1);
         slideTimer = maxSlideTime;
     }
 
     private void SlidingMovement()
     {
+        //Get slide direction
         inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //Apply force for slide
         rb.AddForce(inputDirection * slidepower, ForceMode.Impulse);
+        //Decrease timer
         slideTimer -= Time.deltaTime;
+        //Stops slide when timer runs out
         if(slideTimer <= 0)
         {
             StopSlide();
         }
     }
 
+    //Stops slide and resets players scale and input direction
     private void StopSlide()
     {
         inputDirection = new Vector3(0, 0 , 0);
         sliding = false;
         Capsule.localScale = new Vector3(Capsule.localScale.x, 1, Capsule.localScale.z);
-        //hitbox.size = new Vector3(1, 2, 1);
     }
 
+    //Crouches
     private void crouchStart()
     {
         Capsule.localScale = new Vector3(Capsule.localScale.x, 0.5f, Capsule.localScale.z);
-        //hitbox.size = new Vector3(1, 1, 1);
         bool isCrouched = true;
     }
+    //Uncrouch function
     private void stopCrouch()
     {
         Capsule.localScale = new Vector3(Capsule.localScale.x, 1f, Capsule.localScale.z);
-        //hitbox.size = new Vector3(1, 2, 1);
     }
     }
