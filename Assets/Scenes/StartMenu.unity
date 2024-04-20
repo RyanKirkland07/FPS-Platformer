@@ -411,6 +411,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &261349761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3656606715771546312, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+  m_PrefabInstance: {fileID: 974028710164579224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &261349767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261349761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a42d27f7b19f84585a920a7e61cff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &682680443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,13 +2291,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 125185968}
+    - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
@@ -2290,7 +2319,15 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433777391699527075, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2599129932971075804, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
@@ -2337,13 +2374,24 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7678730128417268840, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 261349767}
+    - target: {fileID: 7678730128417268840, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 974028710479615276, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
       insertIndex: -1
       addedObject: {fileID: 125185969}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3656606715771546312, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 261349767}
   m_SourcePrefab: {fileID: 100100000, guid: f6f16c215682bea4595f4045526e9a64, type: 3}
 --- !u!224 &974028710164579225 stripped
 RectTransform:
