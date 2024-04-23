@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class YouWin : MonoBehaviour
 {
     public GameObject Winner;
@@ -21,6 +21,14 @@ public class YouWin : MonoBehaviour
         if(Info.tag == "Win")
         {
             Winner.SetActive(true);
+            StartCoroutine(Return());
+            IEnumerator Return()
+            {
+                yield return new WaitForSeconds(5);
+                SceneManager.LoadScene("StartMenu");
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
     }
 }

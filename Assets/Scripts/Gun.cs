@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     public AudioClip ARShot;
     public AudioClip ShotgunShot;
     public ParticleSystem Flash;
-
+    public ParticleSystem HitEffect;
     //Enemy Mask that is targeted by raycast
     public LayerMask EnemyLayerMask;
     // Start is called before the first frame update
@@ -96,8 +96,11 @@ public class Gun : MonoBehaviour
                 //Calls enemy script to apply damage
                 target.TakeDamage(gundamage);
             }
+            Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            HitEffect.Play();
         }
     }
+
     
     //These functions change the variables when switching guns
     public void ARchange()
