@@ -98,9 +98,14 @@ public class Gun : MonoBehaviour
             }
             Instantiate(HitEffect, hit.point, Quaternion.LookRotation(hit.normal));
             HitEffect.Play();
+            StartCoroutine (destroyeffect());
+            IEnumerator destroyeffect(){
+                yield return new WaitForSeconds(3);
+                GameObject effect = GameObject.Find("HitEffect(Clone)");
+                Destroy(effect);
+            }
         }
     }
-
     
     //These functions change the variables when switching guns
     public void ARchange()
