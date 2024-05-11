@@ -17,13 +17,13 @@ public class DatabaseBridge : MonoBehaviour
     void Start()
     {
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-        userID = SystemInfo.deviceUniqueIdentifier;
     }
 
     public void CreateUser(){
-        User user = new User(emailInput.text, passwordInput.text);
+        userID = SystemInfo.deviceUniqueIdentifier + Random.Range(1,1000000);
+        User user = new User(emailInput.text, passwordInput.text, userID);
         string json = JsonUtility.ToJson(user);
-        dbReference.Child("User").Child(userID + Random.Range(1,1000000)).SetRawJsonValueAsync(json);
+        dbReference.Child("User").Child(userID).SetRawJsonValueAsync(json);
 
     }
 }
