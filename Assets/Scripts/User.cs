@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class User
 {
-    public string Username;
-    public string Password;
-    public string userID;
-    public string Email;
+    public float level0Time, level1Time, level2Time, level3Time, level4Time;
 
-    public User(string Username, string Password, string Email, string userID){
-        this.Username = Username;
-        this.Password = Password;
-        this.userID = userID;
-        this.Email = Email;
+
+    public User(float level0Time, float level1Time, float level2Time, float level3Time, float level4Time){
+        this.level0Time = level0Time;
+        this.level1Time = level1Time;
+        this.level2Time = level2Time;
+        this.level3Time = level3Time;
+        this.level4Time = level4Time;
     }
 }

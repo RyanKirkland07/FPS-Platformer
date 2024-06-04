@@ -519,7 +519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1988006464}
         m_TargetAssemblyTypeName: Auth, Assembly-CSharp
-        m_MethodName: CreateUser
+        m_MethodName: RegisterUser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2693,6 +2693,16 @@ MonoBehaviour:
   emailInput: {fileID: 1129218564}
   passwordInput: {fileID: 2054910862}
   usernameInput: {fileID: 1605332543}
+  STime0: 
+  STime1: 
+  STime2: 
+  STime3: 
+  STime4: 
+  UTime0: 0
+  UTime1: 0
+  UTime2: 0
+  UTime3: 0
+  UTime4: 0
 --- !u!1 &2054910860
 GameObject:
   m_ObjectHideFlags: 0
