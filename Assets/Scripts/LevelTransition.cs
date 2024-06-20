@@ -20,7 +20,7 @@ public class LevelTransition : MonoBehaviour
     {
         if(Info.tag == "NextScene")
         {
-            //authScript.transition();
+            authScript.Transition();
         }
     }
     public void sceneTransition(){

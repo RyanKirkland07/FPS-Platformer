@@ -15,15 +15,14 @@ public class Auth : MonoBehaviour
     public TextMeshProUGUI usernameInput;
     public DatabaseReference dbReference;
 
-    public string STime0, STime1, STime2, STime3, STime4;
-    public float UTime0, UTime1, UTime2, UTime3, UTime4;
-    public string UID;
-
-    public int bidx;
+    private static float UTime0, UTime1, UTime2, UTime3, UTime4;
+    public static string UID;
+    public static float finalTime;
+    public static int bidx;
 
     public TextMeshProUGUI timeCounter;
-    public float timer;
-    public bool TimerOn;
+    public static float timer;
+    public static bool TimerOn;
 
     private Firebase.Auth.FirebaseAuth auth;
     private Firebase.Auth.FirebaseUser player;
@@ -53,9 +52,10 @@ public class Auth : MonoBehaviour
                 var player = FirebaseAuth.DefaultInstance.CurrentUser;
                 Firebase.Auth.AuthResult result = task.Result;
                 Debug.Log("Firebase User Registered Successfully "+ result.User.UserId.ToString());
-                User user = new User(0f, 0f, 0f, 0f, 0f);
+                User user = new User(1f, 0f, 0f, 0f, 0f);
                 string json = JsonUtility.ToJson(user);
                 dbReference.Child("User").Child(player.UserId).SetRawJsonValueAsync(json);
+                Debug.LogError(user.level0Time);
             }
             
 
@@ -107,6 +107,7 @@ public class Auth : MonoBehaviour
     }
 
     public void GetIndex(int idx){
+        timer = 0;
         bidx = idx;
         if(bidx > 1)
         {
@@ -124,5 +125,60 @@ public class Auth : MonoBehaviour
             timer += (1 * Time.deltaTime);
             timeCounter.text = timer.ToString();
         }
+    }
+
+    public void Transition()
+    {
+        Debug.LogError(UTime0);
+        TimerOn = false;
+        finalTime = timer;
+        Debug.LogError(finalTime);
+        timer = 0;
+        CheckTimerValues();
+    }
+    public void CheckTimerValues()
+    {
+        Debug.LogError("finalTime: " + finalTime + " " + "UTime0: " + UTime0);
+        switch(bidx)
+        {
+            case <2:
+                Debug.LogError("How?!");
+                break;
+            case 2:
+                if(finalTime < UTime0)
+                {
+                    UTime0 = finalTime;
+                    Debug.LogError("New Time 0 = " + UTime0);
+                }
+                break;
+            case 3:
+                if(finalTime < UTime1)
+                {
+                    UTime1 = finalTime;
+                    Debug.LogError("New Time 1 = " + UTime1);
+                }
+                break;
+            case 4:
+                if(finalTime < UTime2)
+                {
+                    UTime2 = finalTime;
+                    Debug.LogError("New Time 2 = " + UTime2);
+                }
+                break;
+            case 5:
+                if(finalTime < UTime3)
+                {
+                    UTime3 = finalTime;
+                    Debug.LogError("New Time 3 = " + UTime3);
+                }
+                break;
+            case 6:
+                if(finalTime < UTime4)
+                {
+                    UTime4 = finalTime;
+                    Debug.LogError("New Time 4 = " + UTime4);
+                }
+                break;
+        }   
     }
 }
