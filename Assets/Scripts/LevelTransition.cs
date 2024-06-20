@@ -7,16 +7,23 @@ public class LevelTransition : MonoBehaviour
 {
     public GameObject LevelTransitioner;
     public LevelTransition script;
+    public float timer;
+    public float finalTime = 0;
+    public int buildidx;
+
+    public Auth authScript;
+
+    void Start(){
+    }
+
     private void OnTriggerEnter(Collider Info)
     {
-        Debug.Log("Working");
         if(Info.tag == "NextScene")
         {
-            SceneTransition();
+            //authScript.transition();
         }
     }
-    public void SceneTransition()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void sceneTransition(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }

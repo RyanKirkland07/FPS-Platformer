@@ -19,6 +19,8 @@ public class Auth : MonoBehaviour
     public float UTime0, UTime1, UTime2, UTime3, UTime4;
     public string UID;
 
+    public int bidx;
+
     private Firebase.Auth.FirebaseAuth auth;
     private Firebase.Auth.FirebaseUser player;
     private Firebase.Auth.AuthResult result;
@@ -98,5 +100,9 @@ public class Auth : MonoBehaviour
             UTime4 = float.Parse(level4T.Value.ToString());
         }
         SceneManager.LoadScene("StartMenu");
+    }
+
+    public void GetIndex(int idx){
+        bidx = idx;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSelection : MonoBehaviour
 {
+    public Auth authscript;
     // Start is called before the first frame update
     void Start()
     {

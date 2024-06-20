@@ -794,6 +794,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelTransitioner: {fileID: 0}
   script: {fileID: 0}
+  timer: 0
+  finalTime: 0
+  buildidx: 0
+  authScript: {fileID: 2064879052162146610, guid: 9dcff00ef610d6c439f39577b06c9b21, type: 3}
 --- !u!114 &1231819733008116332
 MonoBehaviour:
   m_ObjectHideFlags: 0
