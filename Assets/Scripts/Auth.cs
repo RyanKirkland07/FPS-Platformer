@@ -21,6 +21,10 @@ public class Auth : MonoBehaviour
 
     public int bidx;
 
+    public TextMeshProUGUI timeCounter;
+    public float timer;
+    public bool TimerOn;
+
     private Firebase.Auth.FirebaseAuth auth;
     private Firebase.Auth.FirebaseUser player;
     private Firebase.Auth.AuthResult result;
@@ -104,5 +108,21 @@ public class Auth : MonoBehaviour
 
     public void GetIndex(int idx){
         bidx = idx;
+        if(bidx > 1)
+        {
+            timer = 0f;
+            TimerOn = true;
+            if(TimerOn)
+            {
+                StartCoroutine(UpdateTimer());
+            }
+        }
+    }
+    public IEnumerator UpdateTimer(){
+        while(TimerOn){
+            yield return new WaitForSeconds(0.01f);
+            timer += (1 * Time.deltaTime);
+            timeCounter.text = timer.ToString();
+        }
     }
 }
