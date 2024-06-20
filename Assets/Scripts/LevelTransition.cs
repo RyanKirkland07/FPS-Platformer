@@ -11,16 +11,22 @@ public class LevelTransition : MonoBehaviour
     public float finalTime = 0;
     public int buildidx;
 
+    private static bool done;
+
     public Auth authScript;
 
-    void Start(){
+    void Awake(){
+        done = false;
     }
 
     private void OnTriggerEnter(Collider Info)
     {
         if(Info.tag == "NextScene")
         {
-            authScript.Transition();
+            if(!done){
+                done = true;
+                authScript.Transition();
+            }
         }
     }
     public void sceneTransition(){

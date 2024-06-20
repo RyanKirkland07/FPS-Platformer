@@ -45,28 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753bbc9e49ef4e54c8b20f5d6c967cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreScript: {fileID: 4410268794474345792, guid: de8c2c861fd0bb647beccf2ea3777563, type: 3}
-  timerOn: 0
-  timeCounter: {fileID: 0}
-  timer: 0
-  finalTime: 0
-  buildidx: 0
   emailInput: {fileID: 0}
   passwordInput: {fileID: 0}
   usernameInput: {fileID: 0}
-  STime0: 
-  STime1: 
-  STime2: 
-  STime3: 
-  STime4: 
-  UTime0: 0
-  UTime1: 0
-  UTime2: 0
-  UTime3: 0
-  UTime4: 0
-  UID: 
-  LevelTransition: {fileID: 2462947653169192020, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
-  capsule: {fileID: 0}
+  transScript: {fileID: 2462947653169192020, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
+  timeCounter: {fileID: 0}
 --- !u!114 &5156437702735833352
 MonoBehaviour:
   m_ObjectHideFlags: 0

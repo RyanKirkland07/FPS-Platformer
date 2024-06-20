@@ -19,6 +19,7 @@ public class Auth : MonoBehaviour
     public static string UID;
     public static float finalTime;
     public static int bidx;
+    public LevelTransition transScript;
 
     public TextMeshProUGUI timeCounter;
     public static float timer;
@@ -52,10 +53,9 @@ public class Auth : MonoBehaviour
                 var player = FirebaseAuth.DefaultInstance.CurrentUser;
                 Firebase.Auth.AuthResult result = task.Result;
                 Debug.Log("Firebase User Registered Successfully "+ result.User.UserId.ToString());
-                User user = new User(1f, 0f, 0f, 0f, 0f);
+                User user = new User(999.9f, 999.9f, 999.9f, 999.9f, 999.9f);
                 string json = JsonUtility.ToJson(user);
                 dbReference.Child("User").Child(player.UserId).SetRawJsonValueAsync(json);
-                Debug.LogError(user.level0Time);
             }
             
 
@@ -136,9 +136,9 @@ public class Auth : MonoBehaviour
         timer = 0;
         CheckTimerValues();
     }
-    public void CheckTimerValues()
+    public async void CheckTimerValues()
     {
-        Debug.LogError("finalTime: " + finalTime + " " + "UTime0: " + UTime0);
+        Debug.LogError("finalTime: " + finalTime);
         switch(bidx)
         {
             case <2:
@@ -149,6 +149,14 @@ public class Auth : MonoBehaviour
                 {
                     UTime0 = finalTime;
                     Debug.LogError("New Time 0 = " + UTime0);
+                    User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
+                    string json = JsonUtility.ToJson(user);
+                    await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    transScript.sceneTransition();
+                }
+                else
+                {
+                    transScript.sceneTransition();
                 }
                 break;
             case 3:
@@ -156,6 +164,14 @@ public class Auth : MonoBehaviour
                 {
                     UTime1 = finalTime;
                     Debug.LogError("New Time 1 = " + UTime1);
+                    User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
+                    string json = JsonUtility.ToJson(user);
+                    await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    transScript.sceneTransition();
+                }
+                else
+                {
+                    transScript.sceneTransition();
                 }
                 break;
             case 4:
@@ -163,6 +179,14 @@ public class Auth : MonoBehaviour
                 {
                     UTime2 = finalTime;
                     Debug.LogError("New Time 2 = " + UTime2);
+                    User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
+                    string json = JsonUtility.ToJson(user);
+                    await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    transScript.sceneTransition();
+                }
+                else
+                {
+                    transScript.sceneTransition();
                 }
                 break;
             case 5:
@@ -170,6 +194,14 @@ public class Auth : MonoBehaviour
                 {
                     UTime3 = finalTime;
                     Debug.LogError("New Time 3 = " + UTime3);
+                    User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
+                    string json = JsonUtility.ToJson(user);
+                    await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    transScript.sceneTransition();
+                }
+                else
+                {
+                    transScript.sceneTransition();
                 }
                 break;
             case 6:
@@ -177,6 +209,14 @@ public class Auth : MonoBehaviour
                 {
                     UTime4 = finalTime;
                     Debug.LogError("New Time 4 = " + UTime4);
+                    User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
+                    string json = JsonUtility.ToJson(user);
+                    await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    transScript.sceneTransition();
+                }
+                else
+                {
+                    transScript.sceneTransition();
                 }
                 break;
         }   
