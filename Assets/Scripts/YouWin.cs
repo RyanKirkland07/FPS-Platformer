@@ -4,31 +4,35 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class YouWin : MonoBehaviour
 {
+    public Auth authScript;
     public GameObject Winner;
+    public static bool done;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        done = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        Debug.Log("hi");
     }
     public void OnTriggerStay(Collider Info)
     {
         if(Info.tag == "Win")
-        {
+        {           
             Winner.SetActive(true);
-            StartCoroutine(Return());
-            IEnumerator Return()
-            {
-                yield return new WaitForSeconds(5);
-                SceneManager.LoadScene("StartMenu");
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+            if(!done){
+                done = true; 
+                authScript.Transition();
             }
         }
+    }
+    public void LastScene(){
+        Debug.LogError("Active? "+gameObject.activeInHierarchy);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("StartMenu");    
     }
 }

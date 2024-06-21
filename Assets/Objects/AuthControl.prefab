@@ -49,6 +49,7 @@ MonoBehaviour:
   passwordInput: {fileID: 0}
   usernameInput: {fileID: 0}
   transScript: {fileID: 2462947653169192020, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
+  YouWin: {fileID: 6046090871036438048, guid: d885e08d59dded8499c2f2a84037d420, type: 3}
   timeCounter: {fileID: 0}
 --- !u!114 &5156437702735833352
 MonoBehaviour:

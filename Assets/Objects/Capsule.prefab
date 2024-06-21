@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 3494595920884077607}
   - component: {fileID: 2462947653169192020}
   - component: {fileID: 1231819733008116332}
+  - component: {fileID: 6046090871036438048}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -817,6 +818,20 @@ MonoBehaviour:
   ShotgunEquipped: 0
   GunScript: {fileID: 0}
   GunBarrel: {fileID: 0}
+--- !u!114 &6046090871036438048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462947653169192358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dec98f00a1a54a4185839898432fbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  authScript: {fileID: 2064879052162146610, guid: 9dcff00ef610d6c439f39577b06c9b21, type: 3}
+  Winner: {fileID: 8292160451077275520, guid: 482d0279947b7e84386bb8dc379dfa7f, type: 3}
 --- !u!1 &2462947653193755606
 GameObject:
   m_ObjectHideFlags: 0

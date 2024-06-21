@@ -20,6 +20,7 @@ public class Auth : MonoBehaviour
     public static float finalTime;
     public static int bidx;
     public LevelTransition transScript;
+    public YouWin YouWin;
 
     public TextMeshProUGUI timeCounter;
     public static float timer;
@@ -212,11 +213,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
-                    transScript.sceneTransition();
+                    YouWin.LastScene();
                 }
                 else
                 {
-                    transScript.sceneTransition();
+                    YouWin.LastScene();
                 }
                 break;
         }   
