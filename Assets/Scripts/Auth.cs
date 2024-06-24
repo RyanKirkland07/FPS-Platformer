@@ -123,7 +123,7 @@ public class Auth : MonoBehaviour
     public IEnumerator UpdateTimer(){
         while(TimerOn){
             yield return new WaitForSeconds(0.01f);
-            timer += (1 * Time.deltaTime);
+            timer = Time.timeSinceLevelLoad;
             timeCounter.text = timer.ToString();
         }
     }
