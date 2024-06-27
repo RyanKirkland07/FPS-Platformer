@@ -9,3 +9,11 @@ The gameplay will consist of platforming while trying to survive or take out dif
 The player will move using the basic FPS controls (WASD to move and space to jump) and I will also attempt to add more advanced forms of movement such as sliding. I will also add a shooting mechanic using the left mouse button to activate.
 
 I will also attempt to add power ups to my game which will give the player boosts such as speed boosts or jump boosts.
+
+2024 Assessment Task 3:
+
+For this assignment I added a database to my previous project using firebase
+
+The database is able to store authentication for multiple accounts including an email, a password a unique UserId and time values
+
+The database will change the time values if a faster time is received, saving highscores for all players.
