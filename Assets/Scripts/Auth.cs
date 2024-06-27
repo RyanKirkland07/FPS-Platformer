@@ -16,15 +16,16 @@ public class Auth : MonoBehaviour
     public DatabaseReference dbReference;
 
     private static float UTime0, UTime1, UTime2, UTime3, UTime4;
-    public static string UID;
-    public static float finalTime;
-    public static int bidx;
+    private static float High0, High1, High2, High3, High4;
+    private static string UID;
+    private static float finalTime;
+    private static int bidx;
     public LevelTransition transScript;
     public YouWin YouWin;
 
     public TextMeshProUGUI timeCounter;
-    public static float timer;
-    public static bool TimerOn;
+    private static float timer;
+    private static bool TimerOn;
 
     private Firebase.Auth.FirebaseAuth auth;
     private Firebase.Auth.FirebaseUser player;
@@ -96,6 +97,12 @@ public class Auth : MonoBehaviour
         var level2T = await dbReference.Child("User").Child(UID).Child("level2Time").GetValueAsync();
         var level3T = await dbReference.Child("User").Child(UID).Child("level3Time").GetValueAsync();
         var level4T = await dbReference.Child("User").Child(UID).Child("level4Time").GetValueAsync();
+
+        var HS0 = await dbReference.Child("User").Child("Level0High").GetValueAsync();
+        var HS1 = await dbReference.Child("User").Child("Level1High").GetValueAsync();
+        var HS2 = await dbReference.Child("User").Child("Level2High").GetValueAsync();
+        var HS3 = await dbReference.Child("User").Child("Level3High").GetValueAsync();
+        var HS4 = await dbReference.Child("User").Child("Level4High").GetValueAsync();
         bool worked = true;
         if(worked){
             UTime0 = float.Parse(level0T.Value.ToString());
@@ -103,6 +110,12 @@ public class Auth : MonoBehaviour
             UTime2 = float.Parse(level2T.Value.ToString());
             UTime3 = float.Parse(level3T.Value.ToString());
             UTime4 = float.Parse(level4T.Value.ToString());
+
+            High0 = float.Parse(HS0.Value.ToString());
+            High1 = float.Parse(HS1.Value.ToString());
+            High2 = float.Parse(HS2.Value.ToString());
+            High3 = float.Parse(HS3.Value.ToString());
+            High4 = float.Parse(HS4.Value.ToString());
         }
         SceneManager.LoadScene("StartMenu");
     }
@@ -153,6 +166,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    if(UTime0 < High0)
+                    {
+                        High0 = UTime0;
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level0High").SetValueAsync(UTime0);
+                    }
                     transScript.sceneTransition();
                 }
                 else
@@ -168,6 +186,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    if(UTime1 < High1)
+                    {
+                        High1 = UTime1;
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level1High").SetValueAsync(UTime1);
+                    }
                     transScript.sceneTransition();
                 }
                 else
@@ -183,6 +206,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    if(UTime2 < High2)
+                    {
+                        High2 = UTime2;
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level2High").SetValueAsync(UTime2);
+                    }
                     transScript.sceneTransition();
                 }
                 else
@@ -198,6 +226,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    if(UTime3 < High3)
+                    {
+                        High3 = UTime3;
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level3High").SetValueAsync(UTime3);
+                    }
                     transScript.sceneTransition();
                 }
                 else
@@ -213,6 +246,11 @@ public class Auth : MonoBehaviour
                     User user = new User(UTime0, UTime1, UTime2, UTime3, UTime4);
                     string json = JsonUtility.ToJson(user);
                     await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(UID).SetRawJsonValueAsync(json);
+                    if(UTime4 < High4)
+                    {
+                        High4 = UTime4;
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level4High").SetValueAsync(UTime4);
+                    }
                     YouWin.LastScene();
                 }
                 else
