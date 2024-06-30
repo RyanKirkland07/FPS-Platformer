@@ -17,6 +17,7 @@ public class SceneSelection : MonoBehaviour
         
     }
     public void SelectScene(){
+        //Gets the name of selected button and transfers scene to corresponding scene
         switch(this.gameObject.name){
             case "toLevel0":
                 SceneManager.LoadScene("level 0");

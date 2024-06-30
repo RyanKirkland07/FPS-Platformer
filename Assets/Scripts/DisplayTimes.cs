@@ -12,6 +12,7 @@ public class DisplayTimes : MonoBehaviour
     private bool worked;
     async void Awake()
     {
+        //Get snapshot of current User's time scores
         var level0T = await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level0Time").GetValueAsync();
         var level1T = await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level1Time").GetValueAsync();
         var level2T = await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level2Time").GetValueAsync();
@@ -20,12 +21,14 @@ public class DisplayTimes : MonoBehaviour
         worked = true;
         if(worked)
         {
+            //Get string value of User's time scores
             UTime0 = (level0T.Value.ToString());
             UTime1 = (level1T.Value.ToString());
             UTime2 = (level2T.Value.ToString());
             UTime3 = (level3T.Value.ToString());
             UTime4 = (level4T.Value.ToString());
 
+            //Displays User's time scores in scene selection tab
             Time0.text = UTime0;
             Time1.text = UTime1;
             Time2.text = UTime2;

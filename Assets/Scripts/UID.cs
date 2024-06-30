@@ -9,6 +9,7 @@ public class UID : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //Gets and displays current User's UserId in the start menu scene
         userID.text = "UID: " + FirebaseAuth.DefaultInstance.CurrentUser.UserId;
     }
 }

@@ -18,6 +18,7 @@ public class BacktoMenu : MonoBehaviour
     }
     public void returnToMenu()
     {
+        //Returns to menu when button is pause menu is clicked
         SceneManager.LoadScene("StartMenu");
     }
 }
