@@ -177,6 +177,7 @@ public class Auth : MonoBehaviour
                 Debug.LogError("How?!");
                 break;
             case 2:
+                //If new time is faster than old time change time to new time
                 if(finalTime < UTime0)
                 {
                     UTime0 = finalTime;
