@@ -48,11 +48,11 @@ public class DisplayLeaderboard : MonoBehaviour
             HighScoreUser4 = UserHS4.Value.ToString();
             
             //Display highscores and display name in leaderboard tab
-            Highscore0.text = High0 + " " + displayedName0;
-            Highscore1.text = High1 + " " + displayedName1;
-            Highscore2.text = High2 + " " + displayedName2;
-            Highscore3.text = High3 + " " + displayedName3;
-            Highscore4.text = High4 + " " + displayedName4;
+            Highscore0.text = High0 + " " + HighScoreUser0;
+            Highscore1.text = High1 + " " + HighScoreUser1;
+            Highscore2.text = High2 + " " + HighScoreUser2;
+            Highscore3.text = High3 + " " + HighScoreUser3;
+            Highscore4.text = High4 + " " + HighScoreUser4;
         }
     }
 }
