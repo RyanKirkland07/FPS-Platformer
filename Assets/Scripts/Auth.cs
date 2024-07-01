@@ -93,9 +93,6 @@ public class Auth : MonoBehaviour
             }
         
     }
-    public void LogOutUser(){
-        FirebaseAuth.DefaultInstance.SignOut();
-    }
     private async void GetTimeValues(){
 
         //Get snapshot of User's time scores
