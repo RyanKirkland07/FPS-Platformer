@@ -17,18 +17,18 @@ public class Auth : MonoBehaviour
 
     public DatabaseReference dbReference;
 
-    private static float UTime0, UTime1, UTime2, UTime3, UTime4;
-    private static float High0, High1, High2, High3, High4;
+    private static double UTime0, UTime1, UTime2, UTime3, UTime4;
+    private static double High0, High1, High2, High3, High4;
     private static string HighScoreUser0, HighScoreUser1, HighScoreUser2, HighScoreUser3, HighScoreUser4;
     private static string displayedName0, displayedName1, displayedName2, displayedName3, displayedName4;
     private static string UID;
-    private static float finalTime;
+    private static double finalTime;
     private static int bidx;
     public LevelTransition transScript;
     public YouWin YouWin;
 
     public TextMeshProUGUI timeCounter;
-    private static float timer;
+    private static double timer;
     private static bool TimerOn;
 
     private Firebase.Auth.FirebaseAuth auth;
@@ -115,19 +115,19 @@ public class Auth : MonoBehaviour
         var HS4 = await dbReference.Child("Times").Child("level4High").GetValueAsync();
         bool worked = true;
         if(worked){
-            //Get float value of User's time scores
-            UTime0 = float.Parse(level0T.Value.ToString());
-            UTime1 = float.Parse(level1T.Value.ToString());
-            UTime2 = float.Parse(level2T.Value.ToString());
-            UTime3 = float.Parse(level3T.Value.ToString());
-            UTime4 = float.Parse(level4T.Value.ToString());
+            //Get double value of User's time scores
+            UTime0 = double.Parse(level0T.Value.ToString());
+            UTime1 = double.Parse(level1T.Value.ToString());
+            UTime2 = double.Parse(level2T.Value.ToString());
+            UTime3 = double.Parse(level3T.Value.ToString());
+            UTime4 = double.Parse(level4T.Value.ToString());
 
-            //Get float value of highscores
-            High0 = float.Parse(HS0.Value.ToString());
-            High1 = float.Parse(HS1.Value.ToString());
-            High2 = float.Parse(HS2.Value.ToString());
-            High3 = float.Parse(HS3.Value.ToString());
-            High4 = float.Parse(HS4.Value.ToString());
+            //Get double value of highscores
+            High0 = double.Parse(HS0.Value.ToString());
+            High1 = double.Parse(HS1.Value.ToString());
+            High2 = double.Parse(HS2.Value.ToString());
+            High3 = double.Parse(HS3.Value.ToString());
+            High4 = double.Parse(HS4.Value.ToString());
         }
         //Transfer to menu from login screen
         SceneManager.LoadScene("StartMenu");
@@ -154,6 +154,7 @@ public class Auth : MonoBehaviour
         while(TimerOn){
             yield return new WaitForSeconds(0.01f);
             timer = Time.timeSinceLevelLoad;
+            timer = System.Math.Round(timer, 2);
             timeCounter.text = timer.ToString();
         }
     }

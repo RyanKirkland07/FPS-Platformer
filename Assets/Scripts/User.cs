@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class User
 {
-    public float level0Time, level1Time, level2Time, level3Time, level4Time;
+    public double level0Time, level1Time, level2Time, level3Time, level4Time;
 
     //Constructor class for users
-    public User(float level0Time, float level1Time, float level2Time, float level3Time, float level4Time){
+    public User(double level0Time, double level1Time, double level2Time, double level3Time, double level4Time){
         this.level0Time = level0Time;
         this.level1Time = level1Time;
         this.level2Time = level2Time;
