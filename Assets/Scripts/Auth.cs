@@ -12,7 +12,9 @@ public class Auth : MonoBehaviour
 {
     public TextMeshProUGUI emailInput;
     public TextMeshProUGUI passwordInput;
-    public TextMeshProUGUI usernameInput;
+
+    public TextMeshProUGUI ErrorText;
+
     public DatabaseReference dbReference;
 
     private static float UTime0, UTime1, UTime2, UTime3, UTime4;
@@ -42,6 +44,7 @@ public class Auth : MonoBehaviour
         //Define Database reference
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
         DontDestroyOnLoad(gameObject);
+        ErrorText.text = "";
     }
      //Register user to Firebase Authentication
     public void RegisterUser(){
@@ -61,6 +64,8 @@ public class Auth : MonoBehaviour
                 User user = new User(999.9f, 999.9f, 999.9f, 999.9f, 999.9f);
                 string json = JsonUtility.ToJson(user);
                 dbReference.Child("User").Child(player.UserId).SetRawJsonValueAsync(json);
+                ErrorText.text = "Successfully registered User";
+                return;
             }
             
 
@@ -96,18 +101,18 @@ public class Auth : MonoBehaviour
     private async void GetTimeValues(){
 
         //Get snapshot of User's time scores
-        var level0T = await dbReference.Child("User").Child(UID).Child("level0Time").GetValueAsync();
-        var level1T = await dbReference.Child("User").Child(UID).Child("level1Time").GetValueAsync();
-        var level2T = await dbReference.Child("User").Child(UID).Child("level2Time").GetValueAsync();
-        var level3T = await dbReference.Child("User").Child(UID).Child("level3Time").GetValueAsync();
-        var level4T = await dbReference.Child("User").Child(UID).Child("level4Time").GetValueAsync();
+        var level0T = await dbReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level0Time").GetValueAsync();
+        var level1T = await dbReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level1Time").GetValueAsync();
+        var level2T = await dbReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level2Time").GetValueAsync();
+        var level3T = await dbReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level3Time").GetValueAsync();
+        var level4T = await dbReference.Child("User").Child(FirebaseAuth.DefaultInstance.CurrentUser.UserId).Child("level4Time").GetValueAsync();
 
         //Get snapshot of highscores
-        var HS0 = await dbReference.Child("User").Child("Level0High").GetValueAsync();
-        var HS1 = await dbReference.Child("User").Child("Level1High").GetValueAsync();
-        var HS2 = await dbReference.Child("User").Child("Level2High").GetValueAsync();
-        var HS3 = await dbReference.Child("User").Child("Level3High").GetValueAsync();
-        var HS4 = await dbReference.Child("User").Child("Level4High").GetValueAsync();
+        var HS0 = await dbReference.Child("Times").Child("level0High").GetValueAsync();
+        var HS1 = await dbReference.Child("Times").Child("level1High").GetValueAsync();
+        var HS2 = await dbReference.Child("Times").Child("level2High").GetValueAsync();
+        var HS3 = await dbReference.Child("Times").Child("level3High").GetValueAsync();
+        var HS4 = await dbReference.Child("Times").Child("level4High").GetValueAsync();
         bool worked = true;
         if(worked){
             //Get float value of User's time scores
@@ -186,10 +191,10 @@ public class Auth : MonoBehaviour
                     if(UTime0 < High0)
                     {
                         High0 = UTime0;
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level0High").SetValueAsync(UTime0);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("level0High").SetValueAsync(UTime0);
                         HighScoreUser0 = FirebaseAuth.DefaultInstance.CurrentUser.Email;
                         displayedName0 = HighScoreUser0.Substring(0, 4);
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("HighScoreUser0").SetValueAsync(displayedName0);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("HighScoreUser0").SetValueAsync(displayedName0);
                     }
                     transScript.sceneTransition();
                 }
@@ -209,10 +214,10 @@ public class Auth : MonoBehaviour
                     if(UTime1 < High1)
                     {
                         High1 = UTime1;
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level1High").SetValueAsync(UTime1);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("level1High").SetValueAsync(UTime1);
                         HighScoreUser1 = FirebaseAuth.DefaultInstance.CurrentUser.Email;
                         displayedName1 = HighScoreUser1.Substring(0, 4);
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("HighScoreUser1").SetValueAsync(displayedName1);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("HighScoreUser1").SetValueAsync(displayedName1);
                     }
                     transScript.sceneTransition();
                 }
@@ -232,10 +237,10 @@ public class Auth : MonoBehaviour
                     if(UTime2 < High2)
                     {
                         High2 = UTime2;
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level2High").SetValueAsync(UTime2);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("level2High").SetValueAsync(UTime2);
                         HighScoreUser2 = FirebaseAuth.DefaultInstance.CurrentUser.Email;
                         displayedName2 = HighScoreUser2.Substring(0, 4);
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("HighScoreUser2").SetValueAsync(displayedName2);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("HighScoreUser2").SetValueAsync(displayedName2);
                     }
                     transScript.sceneTransition();
                 }
@@ -255,10 +260,10 @@ public class Auth : MonoBehaviour
                     if(UTime3 < High3)
                     {
                         High3 = UTime3;
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level3High").SetValueAsync(UTime3);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("level3High").SetValueAsync(UTime3);
                         HighScoreUser3 = FirebaseAuth.DefaultInstance.CurrentUser.Email;
                         displayedName3 = HighScoreUser3.Substring(0, 4);
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("HighScoreUser3").SetValueAsync(displayedName3);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("HighScoreUser3").SetValueAsync(displayedName3);
                     }
                     transScript.sceneTransition();
                 }
@@ -278,10 +283,10 @@ public class Auth : MonoBehaviour
                     if(UTime4 < High4)
                     {
                         High4 = UTime4;
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("Level4High").SetValueAsync(UTime4);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("level4High").SetValueAsync(UTime4);
                         HighScoreUser4 = FirebaseAuth.DefaultInstance.CurrentUser.Email;
                         displayedName4 = HighScoreUser4.Substring(0, 4);
-                        await FirebaseDatabase.DefaultInstance.RootReference.Child("User").Child("HighScoreUser4").SetValueAsync(displayedName4);
+                        await FirebaseDatabase.DefaultInstance.RootReference.Child("Times").Child("HighScoreUser4").SetValueAsync(displayedName4);
                     }
                     YouWin.LastScene();
                 }

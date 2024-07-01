@@ -17,18 +17,18 @@ public class DisplayLeaderboard : MonoBehaviour
         var dbReference = FirebaseDatabase.DefaultInstance.RootReference;
 
         //Get snapshot of highscore values in Database
-        var HS0 = await dbReference.Child("User").Child("Level0High").GetValueAsync();
-        var HS1 = await dbReference.Child("User").Child("Level1High").GetValueAsync();
-        var HS2 = await dbReference.Child("User").Child("Level2High").GetValueAsync();
-        var HS3 = await dbReference.Child("User").Child("Level3High").GetValueAsync();
-        var HS4 = await dbReference.Child("User").Child("Level4High").GetValueAsync();
+        var HS0 = await dbReference.Child("Times").Child("level0High").GetValueAsync();
+        var HS1 = await dbReference.Child("Times").Child("level1High").GetValueAsync();
+        var HS2 = await dbReference.Child("Times").Child("level2High").GetValueAsync();
+        var HS3 = await dbReference.Child("Times").Child("level3High").GetValueAsync();
+        var HS4 = await dbReference.Child("Times").Child("level4High").GetValueAsync();
 
         //Get snapshot of User display name of highscore holder from Database
-        var UserHS0 = await dbReference.Child("User").Child("HighScoreUser0").GetValueAsync();
-        var UserHS1 = await dbReference.Child("User").Child("HighScoreUser1").GetValueAsync();
-        var UserHS2 = await dbReference.Child("User").Child("HighScoreUser2").GetValueAsync();
-        var UserHS3 = await dbReference.Child("User").Child("HighScoreUser3").GetValueAsync();
-        var UserHS4 = await dbReference.Child("User").Child("HighScoreUser4").GetValueAsync();
+        var UserHS0 = await dbReference.Child("Times").Child("HighScoreUser0").GetValueAsync();
+        var UserHS1 = await dbReference.Child("Times").Child("HighScoreUser1").GetValueAsync();
+        var UserHS2 = await dbReference.Child("Times").Child("HighScoreUser2").GetValueAsync();
+        var UserHS3 = await dbReference.Child("Times").Child("HighScoreUser3").GetValueAsync();
+        var UserHS4 = await dbReference.Child("Times").Child("HighScoreUser4").GetValueAsync();
   
         worked = true;
         if(worked)
